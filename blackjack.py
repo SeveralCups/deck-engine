@@ -49,8 +49,8 @@ def blackjack():
     # to play again.
     play_again = yes_or_no(
         "Do you want to play another game of Blackjack? Type 'y' or 'n': ")
-    if not play_again:
-        print("Thanks for playing!")
-    else:
+    if play_again:
         clear()
         blackjack()
+    else:
+        print("Thanks for playing!")
