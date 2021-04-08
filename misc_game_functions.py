@@ -15,13 +15,16 @@ def yes_or_no(prompt):
 
 
 def clear():
+    """A series of empty print statements to clear the screen."""
     for _ in range(20):
         print("\n")
 
 
 def compare(player_score, cpu_score):
     # The player would lose if their score went over 21,
-    # even if the dealer also went over.
+    # even if the dealer also went over. This function
+    # is very tailored to blackjack and will need to be
+    # reworked.
     if not player_score > 21 and not cpu_score > 21 and player_score == cpu_score:
         return "Draw"
     elif player_score == 0:
@@ -39,8 +42,8 @@ def compare(player_score, cpu_score):
 
 
 def game_end(player, cpu):
-    # game_summary is returned as a list from final_check()
-    # function in order of use.
+    """Checks the player against the computer and shows
+    the outcome of the game."""
     win_text = compare(player.score, cpu.score)
     player.show_hand(len(player.hand))
     print(f"{player.name}'s final score: {player.score}")
@@ -49,6 +52,7 @@ def game_end(player, cpu):
 
 
 def inform_user(player, cpu):
+    """Called to update the user on the state of the game."""
     player.show_hand(len(player.hand))
     print(f"{player.name}'s current score: {player.score}")
     cpu.show_hand(1)
