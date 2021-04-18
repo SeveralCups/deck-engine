@@ -1,5 +1,6 @@
-from blackjack import blackjack
+from blackjack import Blackjack
 
+blackjack = Blackjack()
 GAMES = {"blackjack": blackjack, "exit": "exit"}
 
 
@@ -17,7 +18,7 @@ def main():
             if user_choice == "exit":
                 return
             else:
-                game_to_run = GAMES[user_choice]
+                game_to_run = GAMES[user_choice].game
             valid_input = True
     game_to_run()
 
