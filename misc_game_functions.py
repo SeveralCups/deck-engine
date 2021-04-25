@@ -18,11 +18,3 @@ def clear():
     """A series of empty print statements to clear the screen."""
     for _ in range(20):
         print("\n")
-
-
-def inform_user(player, cpu):
-    """Called to update the user on the state of the game."""
-    player.show_hand(len(player.hand))
-    print(f"{player.name}'s current score: {player.score}")
-    cpu.show_hand(1)
-    print(f"{cpu.name}'s current score: {cpu.hand[0].value}")

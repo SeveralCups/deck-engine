@@ -1,6 +1,6 @@
 from deck_engine import DeckEngine
 from player import Player
-from misc_game_functions import inform_user, yes_or_no, clear
+from misc_game_functions import *
 from art import logo
 
 
@@ -35,6 +35,13 @@ class Blackjack(DeckEngine):
         cpu.show_hand(len(cpu.hand))
         print(f"{cpu.name}'s final score: {cpu.score}\n{win_text}")
 
+    def inform_user(self, player_1, player_2):
+        """Called to update the user on the state of the game."""
+        player_1.show_hand(len(player_1.hand))
+        print(f"{player_1.name}'s current score: {player_1.score}")
+        player_2.show_hand(1)
+        print(f"{player_2.name}'s current score: {player_2.hand[0].value}")
+
     # Game logic
     def game(self):
         print(logo)
@@ -50,9 +57,9 @@ class Blackjack(DeckEngine):
 
             # Evaluates score and presents the current state
             # of the game to the player.
-            player.calculate_score()
-            cpu.calculate_score()
-            inform_user(player, cpu)
+            player.calculate_score("blackjack")
+            cpu.calculate_score("blackjack")
+            self.inform_user(player, cpu)
 
             # Checks if any win or loss conditions have been met
             # after the initial cards have been dealt.
@@ -70,7 +77,7 @@ class Blackjack(DeckEngine):
                 else:
                     while cpu.score != 0 and cpu.score < 17:
                         cpu.hand.append(self.draw_card())
-                        cpu.calculate_score()
+                        cpu.calculate_score("blackjack")
                         dealing = False
         # When the dealing loop is exited the scores are
         # assessed and a winner is declared.

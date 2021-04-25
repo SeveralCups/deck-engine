@@ -1,7 +1,10 @@
 from blackjack import Blackjack
+from higher_lower import HigherLower
 
 blackjack = Blackjack()
-GAMES = {"blackjack": blackjack, "exit": "exit"}
+higher_lower = HigherLower()
+
+GAMES = {"blackjack": blackjack, "higer_lower": higher_lower, "exit": "exit"}
 
 
 def main():
