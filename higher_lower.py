@@ -27,7 +27,7 @@ class HigherLower(DeckEngine):
         # set number of rounds
         total_rounds = int(input("How many rounds would you like to play? "))
         # set hand size
-        hand_size = int(input("How many cards in each players hand?"))
+        hand_size = int(input("How many cards in each players hand? "))
         # set ace high or low
         set_ace_low = yes_or_no(
             "Would you like to set Ace as low? 'y' or 'n': ")
@@ -83,6 +83,6 @@ class HigherLower(DeckEngine):
             print(f"{winner} wins!")
 
 # test
-higher_lower = HigherLower()
+# higher_lower = HigherLower()
 
-higher_lower.game()
+# higher_lower.game()
